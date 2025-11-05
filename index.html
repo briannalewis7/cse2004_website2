@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baking Recipe Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Baking Recipe Finder</h1>
+        <button id="shoppingListBtn">🛒 Shopping List
+            <span id="numItems"></span>
+        
+        </button>
+            <section id="controls">
+        <input type="text" id="ingredientInput" placeholder="Search by keyword/ingredient...">
+        <select id="categorySelect">
+            <option value="Dessert">Dessert</option>
+            <option value="Cake">Cake</option>
+            <option value="Cookie">Cookie</option>
+            <option value="Pie">Pie</option>
+        </select>
+        <button id="searchBtn">Search Recipes</button>
+    </section>
+    </header>
+
+    <!-- Slide-in Shopping List Panel -->
+    <div id="shoppingListPanel">
+        <div class="panel-header">
+            <h2>Your Shopping List</h2>
+            <button id="closeShoppingList">&times;</button>
+        </div>
+        <ul id="shoppingListItems"></ul>
+        <button id="clearShoppingList" class="clear-list">Clear List</button>
+    </div>
+
+
+
+    <div id="recipeResults"></div>
+    <div id="loading"></div>
+    <div id="fallbackButtonContainer"></div>
+
+    <!-- Recipe Modal -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2 id="recipeTitle"></h2>
+            <img id="recipeImage" src="" alt="">
+            <h3>Ingredients</h3>
+            <ul id="ingredientList"></ul>
+            <h3>Instructions</h3>
+            <p id="recipeInstructions"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
