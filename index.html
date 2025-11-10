@@ -28,20 +28,22 @@
     </header>
 
     <!-- Slide-in Shopping List Panel -->
-    <div id="shoppingListPanel">
+    <aside id="shoppingListPanel">
         <div class="panel-header">
             <h2>Your Shopping List</h2>
             <button id="closeShoppingList">&times;</button>
         </div>
         <ul id="shoppingListItems"></ul>
         <button id="clearShoppingList" class="clear-list">Clear List</button>
-    </div>
+    </aside>
+
+    <main>
+        <div id="recipeResults"></div>
+        <div id="loading"></div>
+        <div id="fallbackButtonContainer"></div>
+    </main>
 
 
-
-    <div id="recipeResults"></div>
-    <div id="loading"></div>
-    <div id="fallbackButtonContainer"></div>
 
     <!-- Recipe Modal -->
     <div id="recipeModal" class="modal">

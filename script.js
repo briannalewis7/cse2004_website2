@@ -11,7 +11,7 @@ const recipeImage = document.querySelector('#recipeImage')
 const ingredientList = document.querySelector('#ingredientList')
 const recipeInstructions = document.querySelector('#recipeInstructions')
 
-const spoonacularApiKey = 'e7c83be67be245babae0ab9e06949f10' // add your key
+const spoonacularApiKey = 'e7c83be67be245babae0ab9e06949f10' 
 
 closeModal.addEventListener('click', () => { recipeModal.style.display = 'none' })
 window.addEventListener('click', (e) => { if (e.target === recipeModal) recipeModal.style.display = 'none' })
@@ -103,7 +103,7 @@ function displayRecipes(meals) {
 
         // Add recipe title
         const title = document.createElement('h3');
-        title.textContent = meal.strMeal || meal.title || 'Unknown Recipe';
+        title.innerHTML = meal.strMeal || meal.title || 'Unknown Recipe';
         card.appendChild(title);
 
         // Add click event listener
@@ -151,7 +151,7 @@ async function fetchSpoonacularRecipes(auto = false) {
 }
 
 function clickAddBtn(addBtn, ing) {
-    addIngredientToList(ing); // just the ingredient name
+    addIngredientToList(ing); 
     addBtn.textContent = '✔';
     addBtn.disabled = true;
     addBtn.title = "item is already in shopping list"
@@ -176,11 +176,10 @@ async function showRecipeDetails(id, source) {
                     const li = document.createElement('li');
                     li.textContent = `${ing.original} `;
 
-                    const isAlreadyAdded = shoppingList.some(i => i.toLowerCase() === ing.toLowerCase());
+                    const isAlreadyAdded = shoppingList.some(i => i.toLowerCase() === ing.name.toLowerCase());
                     const addBtn = document.createElement('button');
 
                     if (isAlreadyAdded) {
-                        // const addBtn = document.createElement('button');
                         addBtn.textContent = '✔';
                         addBtn.disabled = true;
                         addBtn.title = "item is already in shopping list"
@@ -195,16 +194,15 @@ async function showRecipeDetails(id, source) {
                     }
                     // Add event listener
                     addBtn.addEventListener('click', () => {
-                        clickAddBtn(addBtn, ing)
+                        clickAddBtn(addBtn, ing.name)
                     });
 
                     li.appendChild(addBtn);
                     ingredientList.appendChild(li);
                 });
             }
+            recipeInstructions.innerHTML = data.instructions || "Instructions not available."
 
-
-            recipeInstructions.textContent = data.instructions || "Instructions not available."
             recipeModal.style.display = 'block'
         } catch (err) {
             alert("Error loading Spoonacular recipe details.")
@@ -254,8 +252,8 @@ async function showRecipeDetails(id, source) {
                 }
             }
 
+            recipeInstructions.innerHTML = meal.strInstructions
 
-            recipeInstructions.textContent = meal.strInstructions
             recipeModal.style.display = 'block'
         } catch (err) {
             alert("Error loading MealDB recipe details.")
@@ -343,7 +341,6 @@ function addIngredientToList(item) {
         renderShoppingList();
     }
 }
-
 
 function updateCount(num) {
     numItemsDisplay.innerHTML = num
