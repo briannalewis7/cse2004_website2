@@ -3,8 +3,6 @@
     padding: 0;
 }
 
-
-
 :root {
   --main-bg-color: #d8e2dc;
   --main-text-color: #333;
@@ -18,8 +16,6 @@ body {
     font-family: Arial, sans-serif;
     padding: 20px;
     background-color: var(--main-bg-color);
-
-
     color: #333;
 }
 
@@ -253,7 +249,14 @@ li {
     background-color: #f4acb7;
     border: 1px;
     border-radius: 3px;
+    
 }
+
+.remove-btn:hover {
+    box-shadow: 2px 2px 5px gray;
+}
+
+
 .add-btn:hover {
     background-color: var(--button-hover-color);
     box-shadow: 2px 2px 5px gray;
